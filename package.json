@@ -1,0 +1,11 @@
+{
+  "name": "pushpad",
+  "version": "0.1.0",
+  "description": "Web push notifications for Chrome, Firefox and Safari using Pushpad.",
+  "author": "Pushpad <support@pushpad.xyz>",
+  "homepage": "https://pushpad.xyz",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.71.0"
+  }
+}
