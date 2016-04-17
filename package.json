@@ -4,8 +4,19 @@
   "description": "Web push notifications for Chrome, Firefox and Safari using Pushpad.",
   "author": "Pushpad <support@pushpad.xyz>",
   "homepage": "https://pushpad.xyz",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pushpad/pushpad-node.git"
+  },
   "license": "MIT",
   "dependencies": {
-    "request": "^2.71.0"
+    "superagent": "^1.8.3"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "nock": "^8.0.0"
+  },
+  "scripts": {
+    "test": "mocha"
   }
 }

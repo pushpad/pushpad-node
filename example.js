@@ -1,5 +1,3 @@
-process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
-
 var pushpad = require('./index');
 
 var AUTH_TOKEN = '5374d7dfeffa2eb49965624ba7596a09';
