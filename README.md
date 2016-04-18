@@ -81,8 +81,8 @@ var project = new pushpad.Pushpad({
 
 var notification = new pushpad.Notification({
   project: project,
-  body: 'Hello world!',
-  title: 'Website Name',
+  body: 'Hello world!', // max 90 characters
+  title: 'Website Name', // max 30 characters
   targetUrl: 'http://example.com'
 });
 
