@@ -92,6 +92,13 @@ notification.deliverTo(user1, function(err, result) { /*...*/ });
 // deliver to a group of users
 notification.deliverTo([user1, user2, user3], function(err, result) { /*...*/ });
 
+// deliver to some users only if they have a given preference
+// e.g. only "users" who have a interested in "events" will be reached
+notification.deliverTo(users, { tags: ['events'] }, function (err, result) { /*...*/ });
+
+// deliver to segments
+notification.broadcast({ tags: ['segment1', 'segment2'] }, function (err, result) { /*...*/ });
+
 // deliver to everyone
 notification.broadcast(function(err, result) { /*...*/ });
 ```
