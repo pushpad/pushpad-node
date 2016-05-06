@@ -105,8 +105,7 @@ notification.broadcast(function(err, result) { /*...*/ });
 
 If no user with that id has subscribed to push notifications, that id is simply ignored.
 
-The `result` in methods above is an object: `{ scheduled: Number }`
-`scheduled` is the number of devices to which the notification will be sent.
+The methods above return an object: `{ scheduled: Number }`. `scheduled` is the number of devices to which the notification will be sent.
 
 ## License
 
