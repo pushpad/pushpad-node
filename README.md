@@ -83,8 +83,10 @@ var project = new pushpad.Pushpad({
 var notification = new pushpad.Notification({
   project: project,
   body: 'Hello world!', // max 90 characters
-  title: 'Website Name', // max 30 characters
-  targetUrl: 'http://example.com'
+  title: 'Website Name', // optional, defaults to your project name, max 30 characters
+  targetUrl: 'http://example.com', // optional, defaults to your project website
+  iconUrl: 'http://example.com/assets/icon.png', // optional, defaults to the project icon
+  ttl: 604800 // optional, drop the notification after this number of seconds if a device is offline
 });
 
 // deliver to a user

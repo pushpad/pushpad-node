@@ -13,7 +13,9 @@ var notification = new Notification({
   project: project,
   body: 'Hello world!',
   title: 'Website Name',
-  targetUrl: 'http://example.com'
+  targetUrl: 'http://example.com',
+  iconUrl: 'http://example.com/assets/icon.png',
+  ttl: 600
 });
 
 
@@ -40,7 +42,9 @@ describe('Notification', function () {
           'notification': {
             'body': 'Hello world!',
             'title': 'Website Name',
-            'target_url': 'http://example.com'
+            'target_url': 'http://example.com',
+            'icon_url': 'http://example.com/assets/icon.png',
+            'ttl': 600
           }
         })
         .reply(201, {scheduled: 0});
@@ -72,7 +76,9 @@ describe('Notification', function () {
           'notification': {
             'body': 'Hello world!',
             'title': 'Website Name',
-            'target_url': 'http://example.com'
+            'target_url': 'http://example.com',
+            'icon_url': 'http://example.com/assets/icon.png',
+            'ttl': 600
           },
           'uids': 'user1'
         })
@@ -105,7 +111,9 @@ describe('Notification', function () {
           'notification': {
             'body': 'Hello world!',
             'title': 'Website Name',
-            'target_url': 'http://example.com'
+            'target_url': 'http://example.com',
+            'icon_url': 'http://example.com/assets/icon.png',
+            'ttl': 600
           },
           'uids': ['user1', 'user2', 'user3']
         })
