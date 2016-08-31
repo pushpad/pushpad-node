@@ -124,4 +124,25 @@ describe('Notification', function () {
   after(function () {
     nock.restore();
   });
+
+  describe('#deliverTo()', function () {
+    it('should never broadcast a notification', function (done) {
+      notification.deliverTo(null, function (err, result) {
+        if (err) return done(err);
+        done();
+      });
+    });
+
+    before(function () {
+      nock('https://pushpad.xyz/')
+        .post('/projects/123/notifications', {
+          'uids': []
+        })
+        .reply(201, {scheduled: 0});
+    });
+  });
+
+  after(function () {
+    nock.restore();
+  });
 });
