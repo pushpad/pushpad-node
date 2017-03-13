@@ -1,4 +1,4 @@
-# Pushpad - Web Push Notifications Service
+# Pushpad - Web Push Notifications
 
 [![Build Status](https://travis-ci.org/pushpad/pushpad-node.svg?branch=master)](https://travis-ci.org/pushpad/pushpad-node)
  
