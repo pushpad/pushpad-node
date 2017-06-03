@@ -15,7 +15,19 @@ var notification = new Notification({
   title: 'Website Name',
   targetUrl: 'http://example.com',
   iconUrl: 'http://example.com/assets/icon.png',
-  ttl: 600
+  imageUrl: 'http://example.com/assets/image.png',
+  ttl: 600,
+  requireInteraction: true,
+  customData: '123',
+  actions: [
+    {
+      title: 'My Button 1',
+      targetUrl: 'http://example.com/button-link',
+      icon: 'http://example.com/assets/button-icon.png',
+      action: 'myActionName'
+    }
+  ],
+  starred: true
 });
 
 
@@ -44,7 +56,19 @@ describe('Notification', function () {
             'title': 'Website Name',
             'target_url': 'http://example.com',
             'icon_url': 'http://example.com/assets/icon.png',
-            'ttl': 600
+            'image_url': 'http://example.com/assets/image.png',
+            'ttl': 600,
+            'require_interaction': true,
+            'custom_data': '123',
+            'actions': [
+              {
+                'title': 'My Button 1',
+                'target_url': 'http://example.com/button-link',
+                'icon': 'http://example.com/assets/button-icon.png',
+                'action': 'myActionName'
+              }
+            ],
+            'starred': true
           }
         })
         .reply(201, {scheduled: 0});
@@ -78,7 +102,19 @@ describe('Notification', function () {
             'title': 'Website Name',
             'target_url': 'http://example.com',
             'icon_url': 'http://example.com/assets/icon.png',
-            'ttl': 600
+            'image_url': 'http://example.com/assets/image.png',
+            'ttl': 600,
+            'require_interaction': true,
+            'custom_data': '123',
+            'actions': [
+              {
+                'title': 'My Button 1',
+                'target_url': 'http://example.com/button-link',
+                'icon': 'http://example.com/assets/button-icon.png',
+                'action': 'myActionName'
+              }
+            ],
+            'starred': true
           },
           'uids': 'user1'
         })
@@ -113,7 +149,19 @@ describe('Notification', function () {
             'title': 'Website Name',
             'target_url': 'http://example.com',
             'icon_url': 'http://example.com/assets/icon.png',
-            'ttl': 600
+            'image_url': 'http://example.com/assets/image.png',
+            'ttl': 600,
+            'require_interaction': true,
+            'custom_data': '123',
+            'actions': [
+              {
+                'title': 'My Button 1',
+                'target_url': 'http://example.com/button-link',
+                'icon': 'http://example.com/assets/button-icon.png',
+                'action': 'myActionName'
+              }
+            ],
+            'starred': true
           },
           'uids': ['user1', 'user2', 'user3']
         })

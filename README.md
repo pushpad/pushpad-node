@@ -89,7 +89,21 @@ var notification = new pushpad.Notification({
   title: 'Website Name', // optional, defaults to your project name, max 30 characters
   targetUrl: 'http://example.com', // optional, defaults to your project website
   iconUrl: 'http://example.com/assets/icon.png', // optional, defaults to the project icon
-  ttl: 604800 // optional, drop the notification after this number of seconds if a device is offline
+  imageUrl: 'http://example.com/assets/image.png', // optional, an image to display in the notification content
+  ttl: 604800, // optional, drop the notification after this number of seconds if a device is offline
+  requireInteraction: true, // optional, prevent Chrome on desktop from automatically closing the notification after a few seconds
+  customData: '123', // optional, a string that is passed as an argument to action button callbacks
+  // optional, add some action buttons to the notification
+  // see https://pushpad.xyz/docs/action_buttons
+  actions: [
+    {
+      title: 'My Button 1', // max length is 20 characters
+      targetUrl: 'http://example.com/button-link', // optional
+      icon: 'http://example.com/assets/button-icon.png', // optional
+      action: 'myActionName' // optional
+    }
+  ],
+  starred: true // optional, bookmark the notification in the Pushpad dashboard (e.g. to highlight manual notifications)
 });
 
 // deliver to a user
@@ -117,7 +131,9 @@ notification.deliverTo(users, { tags: filter2 }, function (err, result) { /*...*
 notification.broadcast(function(err, result) { /*...*/ });
 ```
 
-If no user with that id has subscribed to push notifications, that id is simply ignored.
+You can set the default values for most fields in the project settings. See also [the docs](https://pushpad.xyz/docs/rest_api#notifications_api_docs) for more information about notification fields.
+
+If you try to send a notification to a user ID, but that user is not subscribed, that ID is simply ignored.
 
 The methods above return an object: 
 
