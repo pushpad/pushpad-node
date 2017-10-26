@@ -27,7 +27,8 @@ var notification = new Notification({
       action: 'myActionName'
     }
   ],
-  starred: true
+  starred: true,
+  sendAt: new Date(Date.UTC(2016, 7 - 1, 25, 10, 9))
 });
 
 
@@ -68,7 +69,8 @@ describe('Notification', function () {
                 'action': 'myActionName'
               }
             ],
-            'starred': true
+            'starred': true,
+            'send_at': '2016-07-25T10:09:00.000Z'
           }
         })
         .reply(201, {scheduled: 0});
@@ -114,7 +116,8 @@ describe('Notification', function () {
                 'action': 'myActionName'
               }
             ],
-            'starred': true
+            'starred': true,
+            'send_at': '2016-07-25T10:09:00.000Z'
           },
           'uids': 'user1'
         })
@@ -161,7 +164,8 @@ describe('Notification', function () {
                 'action': 'myActionName'
               }
             ],
-            'starred': true
+            'starred': true,
+            'send_at': '2016-07-25T10:09:00.000Z'
           },
           'uids': ['user1', 'user2', 'user3']
         })
