@@ -19,6 +19,7 @@ var notification = new Notification({
   ttl: 600,
   requireInteraction: true,
   customData: '123',
+  customMetrics: ['examples', 'another_metric'],
   actions: [
     {
       title: 'My Button 1',
@@ -61,6 +62,7 @@ describe('Notification', function () {
             'ttl': 600,
             'require_interaction': true,
             'custom_data': '123',
+            'custom_metrics': ['examples', 'another_metric'],
             'actions': [
               {
                 'title': 'My Button 1',
@@ -108,6 +110,7 @@ describe('Notification', function () {
             'ttl': 600,
             'require_interaction': true,
             'custom_data': '123',
+            'custom_metrics': ['examples', 'another_metric'],
             'actions': [
               {
                 'title': 'My Button 1',
@@ -156,6 +159,7 @@ describe('Notification', function () {
             'ttl': 600,
             'require_interaction': true,
             'custom_data': '123',
+            'custom_metrics': ['examples', 'another_metric'],
             'actions': [
               {
                 'title': 'My Button 1',

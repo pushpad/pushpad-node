@@ -106,7 +106,10 @@ var notification = new pushpad.Notification({
   starred: true, // optional, bookmark the notification in the Pushpad dashboard (e.g. to highlight manual notifications)
   // optional, use this option only if you need to create scheduled notifications (max 5 days)
   // see https://pushpad.xyz/docs/schedule_notifications
-  sendAt: new Date(Date.UTC(2016, 7 - 1, 25, 10, 9)) // 2016-07-25 10:09 UTC
+  sendAt: new Date(Date.UTC(2016, 7 - 1, 25, 10, 9)), // 2016-07-25 10:09 UTC
+  // optional, add the notification to custom categories for stats aggregation
+  // see https://pushpad.xyz/docs/monitoring
+  customMetrics: ['examples', 'another_metric'] // up to 3 metrics per notification
 });
 
 // deliver to a user
