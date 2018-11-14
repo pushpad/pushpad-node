@@ -17,20 +17,4 @@ describe('Pushpad', function () {
     });
   });
 
-  describe('#path()', function (){
-    it('should return correct path', function () {
-      var actual = project.path();
-      var expected = 'https://pushpad.xyz/projects/123/subscription/edit';
-      assert.equal(actual, expected);
-    });
-  });
-
-  describe('#pathFor()', function (){
-    it('should return correct path for given user', function () {
-      var actual = project.pathFor('testuser1234');
-      var expected = 'https://pushpad.xyz/projects/123/subscription/edit?uid=testuser1234&uid_signature=f1c94d68e25af9f8f818f7016b78934fec99d4c9';
-      assert.equal(actual, expected);
-    });
-  });
-
 });

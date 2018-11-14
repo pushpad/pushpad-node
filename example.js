@@ -17,8 +17,6 @@ var project = new pushpad.Pushpad({
 });
 
 console.log('HMAC signature for the uid: %s is: %s', user1, project.signatureFor(user1));
-console.log('Subscribe anonymous to push notifications: %s', project.path());
-console.log('Subscribe current user: %s to push notifications: %s', user1, project.pathFor(user1));
 
 var notification = new pushpad.Notification({
   project: project,
