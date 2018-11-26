@@ -18,6 +18,7 @@ var notification = new Notification({
   imageUrl: 'http://example.com/assets/image.png',
   ttl: 600,
   requireInteraction: true,
+  urgent: true,
   customData: '123',
   customMetrics: ['examples', 'another_metric'],
   actions: [
@@ -61,6 +62,7 @@ describe('Notification', function () {
             'image_url': 'http://example.com/assets/image.png',
             'ttl': 600,
             'require_interaction': true,
+            'urgent': true,
             'custom_data': '123',
             'custom_metrics': ['examples', 'another_metric'],
             'actions': [
@@ -109,6 +111,7 @@ describe('Notification', function () {
             'image_url': 'http://example.com/assets/image.png',
             'ttl': 600,
             'require_interaction': true,
+            'urgent': true,
             'custom_data': '123',
             'custom_metrics': ['examples', 'another_metric'],
             'actions': [
@@ -158,6 +161,7 @@ describe('Notification', function () {
             'image_url': 'http://example.com/assets/image.png',
             'ttl': 600,
             'require_interaction': true,
+            'urgent': true,
             'custom_data': '123',
             'custom_metrics': ['examples', 'another_metric'],
             'actions': [
