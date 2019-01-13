@@ -59,8 +59,8 @@ var project = new pushpad.Pushpad({
 
 var notification = new pushpad.Notification({
   project: project,
-  body: 'Hello world!', // max 120 characters
-  title: 'Website Name', // optional, defaults to your project name, max 30 characters
+  body: 'Hello world!',
+  title: 'Website Name', // optional, defaults to your project name
   targetUrl: 'http://example.com', // optional, defaults to your project website
   iconUrl: 'http://example.com/assets/icon.png', // optional, defaults to the project icon
   imageUrl: 'http://example.com/assets/image.png', // optional, an image to display in the notification content
@@ -72,7 +72,7 @@ var notification = new pushpad.Notification({
   // see https://pushpad.xyz/docs/action_buttons
   actions: [
     {
-      title: 'My Button 1', // max length is 20 characters
+      title: 'My Button 1',
       targetUrl: 'http://example.com/button-link', // optional
       icon: 'http://example.com/assets/button-icon.png', // optional
       action: 'myActionName' // optional
