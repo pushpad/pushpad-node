@@ -53,7 +53,7 @@ describe('Notification', function () {
           'accept': 'application/json'
         }
       })
-        .post('/projects/123/notifications', {
+        .post('/api/v1/projects/123/notifications', {
           'notification': {
             'body': 'Hello world!',
             'title': 'Website Name',
@@ -102,7 +102,7 @@ describe('Notification', function () {
           'Accept': 'application/json'
         }
       })
-        .post('/projects/123/notifications', {
+        .post('/api/v1/projects/123/notifications', {
           'notification': {
             'body': 'Hello world!',
             'title': 'Website Name',
@@ -152,7 +152,7 @@ describe('Notification', function () {
           'Accept': 'application/json'
         }
       })
-        .post('/projects/123/notifications', {
+        .post('/api/v1/projects/123/notifications', {
           'notification': {
             'body': 'Hello world!',
             'title': 'Website Name',
@@ -195,7 +195,7 @@ describe('Notification', function () {
 
     before(function () {
       nock('https://pushpad.xyz/')
-        .post('/projects/123/notifications', {
+        .post('/api/v1/projects/123/notifications', {
           'uids': []
         })
         .reply(201, {scheduled: 0});
