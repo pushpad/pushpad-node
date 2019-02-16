@@ -61,9 +61,9 @@ var notification = new pushpad.Notification({
   project: project,
   body: 'Hello world!',
   title: 'Website Name', // optional, defaults to your project name
-  targetUrl: 'http://example.com', // optional, defaults to your project website
-  iconUrl: 'http://example.com/assets/icon.png', // optional, defaults to the project icon
-  imageUrl: 'http://example.com/assets/image.png', // optional, an image to display in the notification content
+  targetUrl: 'https://example.com', // optional, defaults to your project website
+  iconUrl: 'https://example.com/assets/icon.png', // optional, defaults to the project icon
+  imageUrl: 'https://example.com/assets/image.png', // optional, an image to display in the notification content
   ttl: 604800, // optional, drop the notification after this number of seconds if a device is offline
   requireInteraction: true, // optional, prevent Chrome on desktop from automatically closing the notification after a few seconds
   urgent: false, // optional, enable this option only for time-sensitive alerts (e.g. incoming phone call)
@@ -73,8 +73,8 @@ var notification = new pushpad.Notification({
   actions: [
     {
       title: 'My Button 1',
-      targetUrl: 'http://example.com/button-link', // optional
-      icon: 'http://example.com/assets/button-icon.png', // optional
+      targetUrl: 'https://example.com/button-link', // optional
+      icon: 'https://example.com/assets/button-icon.png', // optional
       action: 'myActionName' // optional
     }
   ],

@@ -13,9 +13,9 @@ var notification = new Notification({
   project: project,
   body: 'Hello world!',
   title: 'Website Name',
-  targetUrl: 'http://example.com',
-  iconUrl: 'http://example.com/assets/icon.png',
-  imageUrl: 'http://example.com/assets/image.png',
+  targetUrl: 'https://example.com',
+  iconUrl: 'https://example.com/assets/icon.png',
+  imageUrl: 'https://example.com/assets/image.png',
   ttl: 600,
   requireInteraction: true,
   urgent: true,
@@ -24,8 +24,8 @@ var notification = new Notification({
   actions: [
     {
       title: 'My Button 1',
-      targetUrl: 'http://example.com/button-link',
-      icon: 'http://example.com/assets/button-icon.png',
+      targetUrl: 'https://example.com/button-link',
+      icon: 'https://example.com/assets/button-icon.png',
       action: 'myActionName'
     }
   ],
@@ -57,9 +57,9 @@ describe('Notification', function () {
           'notification': {
             'body': 'Hello world!',
             'title': 'Website Name',
-            'target_url': 'http://example.com',
-            'icon_url': 'http://example.com/assets/icon.png',
-            'image_url': 'http://example.com/assets/image.png',
+            'target_url': 'https://example.com',
+            'icon_url': 'https://example.com/assets/icon.png',
+            'image_url': 'https://example.com/assets/image.png',
             'ttl': 600,
             'require_interaction': true,
             'urgent': true,
@@ -68,8 +68,8 @@ describe('Notification', function () {
             'actions': [
               {
                 'title': 'My Button 1',
-                'target_url': 'http://example.com/button-link',
-                'icon': 'http://example.com/assets/button-icon.png',
+                'target_url': 'https://example.com/button-link',
+                'icon': 'https://example.com/assets/button-icon.png',
                 'action': 'myActionName'
               }
             ],
@@ -106,9 +106,9 @@ describe('Notification', function () {
           'notification': {
             'body': 'Hello world!',
             'title': 'Website Name',
-            'target_url': 'http://example.com',
-            'icon_url': 'http://example.com/assets/icon.png',
-            'image_url': 'http://example.com/assets/image.png',
+            'target_url': 'https://example.com',
+            'icon_url': 'https://example.com/assets/icon.png',
+            'image_url': 'https://example.com/assets/image.png',
             'ttl': 600,
             'require_interaction': true,
             'urgent': true,
@@ -117,8 +117,8 @@ describe('Notification', function () {
             'actions': [
               {
                 'title': 'My Button 1',
-                'target_url': 'http://example.com/button-link',
-                'icon': 'http://example.com/assets/button-icon.png',
+                'target_url': 'https://example.com/button-link',
+                'icon': 'https://example.com/assets/button-icon.png',
                 'action': 'myActionName'
               }
             ],
@@ -156,9 +156,9 @@ describe('Notification', function () {
           'notification': {
             'body': 'Hello world!',
             'title': 'Website Name',
-            'target_url': 'http://example.com',
-            'icon_url': 'http://example.com/assets/icon.png',
-            'image_url': 'http://example.com/assets/image.png',
+            'target_url': 'https://example.com',
+            'icon_url': 'https://example.com/assets/icon.png',
+            'image_url': 'https://example.com/assets/image.png',
             'ttl': 600,
             'require_interaction': true,
             'urgent': true,
@@ -167,8 +167,8 @@ describe('Notification', function () {
             'actions': [
               {
                 'title': 'My Button 1',
-                'target_url': 'http://example.com/button-link',
-                'icon': 'http://example.com/assets/button-icon.png',
+                'target_url': 'https://example.com/button-link',
+                'icon': 'https://example.com/assets/button-icon.png',
                 'action': 'myActionName'
               }
             ],

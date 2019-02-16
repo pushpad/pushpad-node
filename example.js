@@ -22,7 +22,7 @@ var notification = new pushpad.Notification({
   project: project,
   body: 'Hello world!',
   title: 'Website Name',
-  targetUrl: 'http://example.com'
+  targetUrl: 'https://example.com'
 });
 
 notification.deliverTo(user1, function (err, result) {
