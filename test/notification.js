@@ -196,6 +196,28 @@ describe('Notification', function () {
     before(function () {
       nock('https://pushpad.xyz/')
         .post('/api/v1/projects/123/notifications', {
+          'notification': {
+            'body': 'Hello world!',
+            'title': 'Website Name',
+            'target_url': 'https://example.com',
+            'icon_url': 'https://example.com/assets/icon.png',
+            'image_url': 'https://example.com/assets/image.png',
+            'ttl': 600,
+            'require_interaction': true,
+            'urgent': true,
+            'custom_data': '123',
+            'custom_metrics': ['examples', 'another_metric'],
+            'actions': [
+              {
+                'title': 'My Button 1',
+                'target_url': 'https://example.com/button-link',
+                'icon': 'https://example.com/assets/button-icon.png',
+                'action': 'myActionName'
+              }
+            ],
+            'starred': true,
+            'send_at': '2016-07-25T10:09:00.000Z'
+          },
           'uids': []
         })
         .reply(201, {scheduled: 0});
