@@ -63,6 +63,7 @@ var notification = new pushpad.Notification({
   title: 'Website Name', // optional, defaults to your project name
   targetUrl: 'https://example.com', // optional, defaults to your project website
   iconUrl: 'https://example.com/assets/icon.png', // optional, defaults to the project icon
+  badgeUrl: 'https://example.com/assets/badge.png', // optional, defaults to the project badge
   imageUrl: 'https://example.com/assets/image.png', // optional, an image to display in the notification content
   ttl: 604800, // optional, drop the notification after this number of seconds if a device is offline
   requireInteraction: true, // optional, prevent Chrome on desktop from automatically closing the notification after a few seconds
