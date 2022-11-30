@@ -11,8 +11,8 @@ describe('Pushpad', function () {
 
   describe('#signatureFor()', function () {
     it('should return correct signature', function () {
-      var actual = project.signatureFor('Lorem ipsum dolor sit amet, cu eam veniam verear blandit');
-      var expected = '71b88a1cab4fa14794128debecae12f5c091f7fe';
+      var actual = project.signatureFor('user12345');
+      var expected = '6627820dab00a1971f2a6d3ff16a5ad8ba4048a02b2d402820afc61aefd0b69f';
       assert.equal(actual, expected);
     });
   });
