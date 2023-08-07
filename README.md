@@ -55,17 +55,41 @@ var project = new pushpad.Pushpad({
 
 var notification = new pushpad.Notification({
   project: project,
+
+  // required, the main content of the notification
   body: 'Hello world!',
-  title: 'Website Name', // optional, defaults to your project name
-  targetUrl: 'https://example.com', // optional, defaults to your project website
-  iconUrl: 'https://example.com/assets/icon.png', // optional, defaults to the project icon
-  badgeUrl: 'https://example.com/assets/badge.png', // optional, defaults to the project badge
-  imageUrl: 'https://example.com/assets/image.png', // optional, an image to display in the notification content
-  ttl: 604800, // optional, drop the notification after this number of seconds if a device is offline
-  requireInteraction: true, // optional, prevent Chrome on desktop from automatically closing the notification after a few seconds
-  silent: false, // optional, enable this option if you want a mute notification without any sound
-  urgent: false, // optional, enable this option only for time-sensitive alerts (e.g. incoming phone call)
-  customData: '123', // optional, a string that is passed as an argument to action button callbacks
+
+  // optional, the title of the notification (defaults to your project name)
+  title: 'Website Name',
+
+  // optional, open this link on notification click (defaults to your project website)
+  targetUrl: 'https://example.com',
+
+  // optional, the icon of the notification (defaults to the project icon)
+  iconUrl: 'https://example.com/assets/icon.png',
+
+  // optional, the small icon displayed in the status bar (defaults to the project badge)
+  badgeUrl: 'https://example.com/assets/badge.png',
+
+  // optional, an image to display in the notification content
+  // see https://pushpad.xyz/docs/sending_images
+  imageUrl: 'https://example.com/assets/image.png',
+
+  // optional, drop the notification after this number of seconds if a device is offline
+  ttl: 604800,
+
+  // optional, prevent Chrome on desktop from automatically closing the notification after a few seconds
+  requireInteraction: true,
+
+  // optional, enable this option if you want a mute notification without any sound
+  silent: false,
+
+  // optional, enable this option only for time-sensitive alerts (e.g. incoming phone call)
+  urgent: false,
+
+  // optional, a string that is passed as an argument to action button callbacks
+  customData: '123',
+
   // optional, add some action buttons to the notification
   // see https://pushpad.xyz/docs/action_buttons
   actions: [
@@ -76,10 +100,14 @@ var notification = new pushpad.Notification({
       action: 'myActionName' // optional
     }
   ],
-  starred: true, // optional, bookmark the notification in the Pushpad dashboard (e.g. to highlight manual notifications)
+
+  // optional, bookmark the notification in the Pushpad dashboard (e.g. to highlight manual notifications)
+  starred: true,
+
   // optional, use this option only if you need to create scheduled notifications (max 5 days)
   // see https://pushpad.xyz/docs/schedule_notifications
   sendAt: new Date(Date.UTC(2016, 7 - 1, 25, 10, 9)), // 2016-07-25 10:09 UTC
+
   // optional, add the notification to custom categories for stats aggregation
   // see https://pushpad.xyz/docs/monitoring
   customMetrics: ['examples', 'another_metric'] // up to 3 metrics per notification
