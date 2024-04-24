@@ -1,6 +1,6 @@
 {
   "name": "pushpad",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Web push notifications for Chrome, Firefox and Safari using Pushpad.",
   "author": "Pushpad <support@pushpad.xyz>",
   "homepage": "https://pushpad.xyz",
@@ -10,11 +10,11 @@
   },
   "license": "MIT",
   "dependencies": {
-    "superagent": "^8.1.2"
+    "superagent": "^9.0.1"
   },
   "devDependencies": {
-    "mocha": "^10.1.0",
-    "nock": "^13.2.9"
+    "mocha": "^10.4.0",
+    "nock": "^13.5.4"
   },
   "scripts": {
     "test": "mocha"
