@@ -128,7 +128,8 @@ notification.deliverTo(users, { tags: ['events'] }, function (err, result) { /*.
 notification.broadcast({ tags: ['segment1', 'segment2'] }, function (err, result) { /*...*/ });
 
 // you can use boolean expressions 
-// they must be in the disjunctive normal form (without parenthesis)
+// they can include parentheses and the operators !, &&, || (from highest to lowest precedence)
+// https://pushpad.xyz/docs/tags
 var filter1 = ['zip_code:28865 && !optout:local_events || friend_of:Organizer123'];
 notification.broadcast({ tags: filter1 }, function (err, result) { /*...*/ });
 var filter2 = ['tag1 && tag2', 'tag3']; //  equal to 'tag1 && tag2 || tag3'
