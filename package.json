@@ -1,6 +1,6 @@
 {
   "name": "pushpad",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Web push notifications for Chrome, Edge, Firefox and Safari using Pushpad.",
   "author": "Pushpad <support@pushpad.xyz>",
   "homepage": "https://pushpad.xyz",
