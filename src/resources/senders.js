@@ -4,9 +4,6 @@ import { ResourceBase } from './base.js';
  * Provides access to Pushpad sender endpoints.
  */
 export class SenderResource extends ResourceBase {
-  constructor(client, getProjectId) {
-    super(client, getProjectId);
-  }
 
   /**
    * Creates a new sender.

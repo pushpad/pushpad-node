@@ -4,11 +4,11 @@
 export class ResourceBase {
   /**
    * @param {import('../httpClient.js').HttpClient} client
-   * @param {(options?: { projectId?: number | string }) => (number | string | undefined)} getProjectId
+   * @param {number | string | undefined} defaultProjectId
    */
-  constructor(client, getProjectId) {
+  constructor(client, defaultProjectId) {
     this.client = client;
-    this.getProjectId = getProjectId;
+    this.defaultProjectId = defaultProjectId;
   }
 
   /**
@@ -17,7 +17,8 @@ export class ResourceBase {
    * @returns {string}
    */
   requireProjectId(options) {
-    const projectId = this.getProjectId?.(options);
+    const hasOverride = options && Object.prototype.hasOwnProperty.call(options, 'projectId');
+    const projectId = hasOverride ? options.projectId : this.defaultProjectId;
     if (projectId === undefined || projectId === null || projectId === '') {
       throw new Error('A projectId is required. Pass it in the Pushpad constructor or the call options.');
     }

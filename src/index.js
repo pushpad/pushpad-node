@@ -32,21 +32,12 @@ export class Pushpad {
       throw new Error('authToken is required to initialise Pushpad.');
     }
 
-    this._defaultProjectId = projectId ?? undefined;
-
     this.client = new HttpClient({ authToken, baseUrl, fetch, timeout });
 
-    const getProjectId = (opts) => {
-      if (opts && Object.prototype.hasOwnProperty.call(opts, 'projectId')) {
-        return opts.projectId;
-      }
-      return this._defaultProjectId;
-    };
-
-    this.notification = new NotificationResource(this.client, getProjectId);
-    this.subscription = new SubscriptionResource(this.client, getProjectId);
-    this.project = new ProjectResource(this.client, getProjectId);
-    this.sender = new SenderResource(this.client, getProjectId);
+    this.notification = new NotificationResource(this.client, projectId);
+    this.subscription = new SubscriptionResource(this.client, projectId);
+    this.project = new ProjectResource(this.client, projectId);
+    this.sender = new SenderResource(this.client, projectId);
   }
 
 }

@@ -4,9 +4,6 @@ import { ResourceBase } from './base.js';
  * Provides access to Pushpad project endpoints.
  */
 export class ProjectResource extends ResourceBase {
-  constructor(client, getProjectId) {
-    super(client, getProjectId);
-  }
 
   /**
    * Creates a new project.
