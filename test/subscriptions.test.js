@@ -85,14 +85,3 @@ test('subscription.find requires a project id', async () => {
     }
   );
 });
-
-test('setProjectId updates the default project used for calls', async () => {
-  const fetchStub = createFetchStub([{ status: 200, body: [] }]);
-  const client = new Pushpad({ authToken: 'token', projectId: 10, fetch: fetchStub });
-
-  client.setProjectId(1234);
-  await client.subscription.findAll();
-
-  const { url } = parseLastCall(fetchStub);
-  assert.equal(url.pathname, '/api/v1/projects/1234/subscriptions');
-});

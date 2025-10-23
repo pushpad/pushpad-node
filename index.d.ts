@@ -143,8 +143,6 @@ export class Pushpad {
   subscription: SubscriptionResource;
   project: ProjectResource;
   sender: SenderResource;
-  get projectId(): number | string | undefined;
-  setProjectId(projectId?: number | string): void;
 }
 
 export class PushpadError extends Error {

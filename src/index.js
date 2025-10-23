@@ -49,20 +49,6 @@ export class Pushpad {
     this.sender = new SenderResource(this.client, getProjectId);
   }
 
-  /**
-   * Overrides the default project id used for project-scoped endpoints.
-   * @param {number | string | undefined} projectId
-   */
-  setProjectId(projectId) {
-    this._defaultProjectId = projectId ?? undefined;
-  }
-
-  /**
-   * @returns {number | string | undefined}
-   */
-  get projectId() {
-    return this._defaultProjectId;
-  }
 }
 
 export { PushpadError };
