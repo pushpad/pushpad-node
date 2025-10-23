@@ -4,7 +4,7 @@ import Pushpad from '../src/index.js';
 import { createFetchStub } from './helpers/fetchStub.js';
 import { parseLastCall } from './helpers/inspectFetch.js';
 
-test('sender.create posts to /senders', async () => {
+test('sender.create creates a sender', async () => {
   const senderPayload = { name: 'My Sender' };
   const senderResponse = {
     id: 321,
@@ -26,7 +26,7 @@ test('sender.create posts to /senders', async () => {
   assert.equal(call.options.body, JSON.stringify(senderPayload));
 });
 
-test('sender.findAll lists senders', async () => {
+test('sender.findAll retrieves senders', async () => {
   const senders = [{ id: 1, name: 'Sender A' }];
   const fetchStub = createFetchStub([{ status: 200, body: senders }]);
   const client = new Pushpad({ authToken: 'token', fetch: fetchStub });
@@ -39,7 +39,7 @@ test('sender.findAll lists senders', async () => {
   assert.equal(url.pathname, '/api/v1/senders');
 });
 
-test('sender.find retrieves sender by id', async () => {
+test('sender.find retrieves a sender', async () => {
   const sender = { id: 77, name: 'Sender B' };
   const fetchStub = createFetchStub([{ status: 200, body: sender }]);
   const client = new Pushpad({ authToken: 'token', fetch: fetchStub });
@@ -52,7 +52,7 @@ test('sender.find retrieves sender by id', async () => {
   assert.equal(url.pathname, '/api/v1/senders/77');
 });
 
-test('sender.update patches sender resource', async () => {
+test('sender.update updates a sender', async () => {
   const updatePayload = { name: 'Updated Sender' };
   const response = { id: 5, name: 'Updated Sender' };
   const fetchStub = createFetchStub([{ status: 200, body: response }]);
@@ -67,7 +67,7 @@ test('sender.update patches sender resource', async () => {
   assert.equal(call.options.body, JSON.stringify(updatePayload));
 });
 
-test('sender.delete sends DELETE to sender resource', async () => {
+test('sender.delete deletes a sender', async () => {
   const fetchStub = createFetchStub([{ status: 204 }]);
   const client = new Pushpad({ authToken: 'token', fetch: fetchStub });
 
@@ -76,4 +76,36 @@ test('sender.delete sends DELETE to sender resource', async () => {
   const { call, url } = parseLastCall(fetchStub);
   assert.equal(call.options.method, 'DELETE');
   assert.equal(url.pathname, '/api/v1/senders/333');
+});
+
+test('sender.create requires an object payload', async () => {
+  const fetchStub = createFetchStub();
+  const client = new Pushpad({ authToken: 'token', fetch: fetchStub });
+
+  await assert.rejects(
+    client.sender.create(),
+    (error) => {
+      assert(error instanceof Error);
+      assert.match(error.message, /non-empty object/);
+      return true;
+    }
+  );
+
+  assert.equal(fetchStub.calls.length, 0);
+});
+
+test('sender.update requires an object payload', async () => {
+  const fetchStub = createFetchStub();
+  const client = new Pushpad({ authToken: 'token', fetch: fetchStub });
+
+  await assert.rejects(
+    client.sender.update(1),
+    (error) => {
+      assert(error instanceof Error);
+      assert.match(error.message, /non-empty object/);
+      return true;
+    }
+  );
+
+  assert.equal(fetchStub.calls.length, 0);
 });
