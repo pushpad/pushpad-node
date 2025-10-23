@@ -1,22 +1,24 @@
 {
   "name": "pushpad",
-  "version": "1.0.2",
-  "description": "Web push notifications for Chrome, Edge, Firefox and Safari using Pushpad.",
-  "author": "Pushpad <support@pushpad.xyz>",
-  "homepage": "https://pushpad.xyz",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pushpad/pushpad-node.git"
+  "version": "2.0.0",
+  "description": "Official Node.js client for the Pushpad API.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": {
+      "import": "./src/index.js"
+    }
   },
+  "types": "index.d.ts",
+  "keywords": [
+    "pushpad",
+    "web-push",
+    "notifications",
+    "api-client"
+  ],
   "license": "MIT",
-  "dependencies": {
-    "superagent": "^10.1.1"
+  "engines": {
+    "node": ">=20"
   },
-  "devDependencies": {
-    "mocha": "^11.0.1",
-    "nock": "^13.5.6"
-  },
-  "scripts": {
-    "test": "mocha"
-  }
+  "dependencies": {}
 }
