@@ -11,8 +11,6 @@ function normalizeQuery(query) {
 
   if (query.per_page !== undefined) {
     normalized.per_page = query.per_page;
-  } else if (query.perPage !== undefined) {
-    normalized.per_page = query.perPage;
   }
 
   if (query.uids !== undefined) {
@@ -53,7 +51,6 @@ export class SubscriptionResource extends ResourceBase {
    * @param {{
    *   page?: number,
    *   per_page?: number,
-   *   perPage?: number,
    *   uids?: string | string[],
    *   tags?: string | string[]
    * }} [query]

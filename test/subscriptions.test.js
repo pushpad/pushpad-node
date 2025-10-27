@@ -49,7 +49,7 @@ test('subscription.findAll normalises query params', async () => {
   const fetchStub = createFetchStub([{ status: 200, body: [] }]);
   const client = new Pushpad({ authToken: 'token', projectId: 55, fetch: fetchStub });
 
-  await client.subscription.findAll({ perPage: 10, uids: 'user1', tags: ['a', 'b'] });
+  await client.subscription.findAll({ per_page: 10, uids: 'user1', tags: ['a', 'b'] });
 
   const { url } = parseLastCall(fetchStub);
   assert.equal(url.pathname, '/api/v1/projects/55/subscriptions');

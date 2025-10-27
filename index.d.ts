@@ -74,7 +74,6 @@ export interface SubscriptionUpdateInput extends Partial<
 export interface SubscriptionListQuery {
   page?: number;
   per_page?: number;
-  perPage?: number;
   uids?: string[];
   tags?: string[];
 }
