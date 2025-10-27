@@ -91,3 +91,22 @@ test('HttpClient propagates timeout errors as PushpadError', async () => {
 
   assert(abortSignal.aborted);
 });
+
+test('HttpClient includeHeaders returns lowercase header keys', async () => {
+  const fetchStub = createFetchStub([
+    { status: 200, headers: { 'X-Custom-Header': 'Value', 'Another': '123' } }
+  ]);
+  const client = new HttpClient({ authToken: 'token', fetch: fetchStub });
+
+  const response = await client.request('HEAD', 'resources', {
+    includeHeaders: true,
+    expectBody: false
+  });
+
+  assert.equal(response.status, 200);
+  assert.deepEqual(response.headers, {
+    'x-custom-header': 'Value',
+    another: '123',
+    'content-type': 'application/json'
+  });
+});

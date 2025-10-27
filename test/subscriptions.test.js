@@ -58,6 +58,20 @@ test('subscription.findAll normalises query params', async () => {
   assert.deepEqual(url.searchParams.getAll('tags[]'), ['a', 'b']);
 });
 
+test('subscription.count returns total using HEAD request', async () => {
+  const fetchStub = createFetchStub([{ status: 200, headers: { 'X-Total-Count': '123' } }]);
+  const client = new Pushpad({ authToken: 'token', projectId: 77, fetch: fetchStub });
+
+  const total = await client.subscription.count({ uids: 'user1', tags: ['vip'] });
+
+  assert.equal(total, 123);
+  const { call, url } = parseLastCall(fetchStub);
+  assert.equal(call.options.method, 'HEAD');
+  assert.equal(url.pathname, '/api/v1/projects/77/subscriptions');
+  assert.deepEqual(url.searchParams.getAll('uids[]'), ['user1']);
+  assert.deepEqual(url.searchParams.getAll('tags[]'), ['vip']);
+});
+
 test('subscription.find retrieves a subscription', async () => {
   const subscriptionResponse = { id: 999, uid: 'user1', tags: ['a'] };
   const fetchStub = createFetchStub([{ status: 200, body: subscriptionResponse }]);

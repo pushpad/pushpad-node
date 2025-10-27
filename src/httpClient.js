@@ -56,6 +56,7 @@ function buildQueryParams(query) {
  * @property {Record<string, string>} [headers]
  * @property {number | number[]} [expectedStatuses]
  * @property {boolean} [expectBody]
+ * @property {boolean} [includeHeaders]
  */
 
 /**
@@ -104,7 +105,8 @@ export class HttpClient {
       body,
       headers = {},
       expectedStatuses,
-      expectBody
+      expectBody,
+      includeHeaders
     } = options;
 
     const base = this.baseUrl.endsWith('/') ? this.baseUrl : `${this.baseUrl}/`;
@@ -168,6 +170,12 @@ export class HttpClient {
     const successfulStatusCodes = expected ?? [200, 201, 202, 204];
     const hasSuccessfulStatus = successfulStatusCodes.includes(response.status);
 
+    const headerEntries = [];
+    for (const [key, value] of response.headers.entries()) {
+      headerEntries.push([key.toLowerCase(), value]);
+    }
+    const responseHeaders = Object.fromEntries(headerEntries);
+
     const contentType = response.headers.get('content-type') ?? '';
     const shouldParseBody = expectBody ?? (response.status !== 204 && contentType.includes('application/json'));
 
@@ -197,9 +205,17 @@ export class HttpClient {
         status: response.status,
         statusText: response.statusText,
         body: parsedBody,
-        headers: Object.fromEntries(response.headers.entries()),
+        headers: responseHeaders,
         request: { method, url: url.toString(), body }
       });
+    }
+
+    if (includeHeaders) {
+      return {
+        body: parsedBody,
+        headers: responseHeaders,
+        status: response.status
+      };
     }
 
     return parsedBody;

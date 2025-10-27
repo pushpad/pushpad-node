@@ -66,6 +66,34 @@ export class SubscriptionResource extends ResourceBase {
   }
 
   /**
+   * Counts subscriptions for a project, with optional filters.
+   * @param {{
+   *   uids?: string | string[],
+   *   tags?: string | string[]
+   * }} [query]
+   * @param {{ projectId?: number }} [options]
+   * @returns {Promise<number>}
+   */
+  async count(query, options) {
+    const projectId = this.requireProjectId(options);
+
+    const response = await this.client.request('HEAD', `projects/${projectId}/subscriptions`, {
+      query: normalizeQuery(query),
+      expectedStatuses: 200,
+      expectBody: false,
+      includeHeaders: true
+    });
+
+    const total = Number(response.headers['x-total-count']);
+
+    if (!Number.isInteger(total)) {
+      throw new Error('Invalid or missing x-total-count header in Pushpad API response.');
+    }
+
+    return total;
+  }
+
+  /**
    * Retrieves a single subscription.
    * @param {number} subscriptionId
    * @param {{ projectId?: number }} [options]
