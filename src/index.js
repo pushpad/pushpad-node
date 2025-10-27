@@ -1,3 +1,4 @@
+import { createHmac } from 'node:crypto';
 import HttpClient from './httpClient.js';
 import { PushpadError } from './errors.js';
 import { NotificationResource } from './resources/notifications.js';
@@ -32,12 +33,24 @@ export class Pushpad {
       throw new Error('authToken is required to initialise Pushpad.');
     }
 
+    this.authToken = authToken;
     this.client = new HttpClient({ authToken, baseUrl, fetch, timeout });
 
     this.notification = new NotificationResource(this.client, projectId);
     this.subscription = new SubscriptionResource(this.client, projectId);
     this.project = new ProjectResource(this.client, projectId);
     this.sender = new SenderResource(this.client, projectId);
+  }
+
+  /**
+   * Create HMAC signature for given data
+   * @param {string} data
+   * @returns {string}
+   */
+  signatureFor(data) {
+    const hmac = createHmac('sha256', this.authToken);
+    hmac.update(data);
+    return hmac.digest('hex');
   }
 
 }

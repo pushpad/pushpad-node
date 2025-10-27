@@ -160,6 +160,7 @@ export class Pushpad {
   subscription: SubscriptionResource;
   project: ProjectResource;
   sender: SenderResource;
+  signatureFor(data: string): string;
 }
 
 export class PushpadError extends Error {
