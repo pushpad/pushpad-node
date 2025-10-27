@@ -33,7 +33,7 @@ export class SubscriptionResource extends ResourceBase {
   /**
    * Creates a new subscription.
    * @param {Record<string, unknown>} data
-   * @param {{ projectId?: number | string }} [options]
+   * @param {{ projectId?: number }} [options]
    * @returns {Promise<Record<string, unknown>>}
    */
   async create(data, options) {
@@ -57,7 +57,7 @@ export class SubscriptionResource extends ResourceBase {
    *   uids?: string | string[],
    *   tags?: string | string[]
    * }} [query]
-   * @param {{ projectId?: number | string }} [options]
+   * @param {{ projectId?: number }} [options]
    * @returns {Promise<unknown[]>}
    */
   async findAll(query, options) {
@@ -70,8 +70,8 @@ export class SubscriptionResource extends ResourceBase {
 
   /**
    * Retrieves a single subscription.
-   * @param {number | string} subscriptionId
-   * @param {{ projectId?: number | string }} [options]
+   * @param {number} subscriptionId
+   * @param {{ projectId?: number }} [options]
    * @returns {Promise<Record<string, unknown>>}
    */
   async find(subscriptionId, options) {
@@ -84,9 +84,9 @@ export class SubscriptionResource extends ResourceBase {
 
   /**
    * Updates an existing subscription.
-   * @param {number | string} subscriptionId
+   * @param {number} subscriptionId
    * @param {Record<string, unknown>} data
-   * @param {{ projectId?: number | string }} [options]
+   * @param {{ projectId?: number }} [options]
    * @returns {Promise<Record<string, unknown>>}
    */
   async update(subscriptionId, data, options) {
@@ -104,8 +104,8 @@ export class SubscriptionResource extends ResourceBase {
 
   /**
    * Deletes a subscription.
-   * @param {number | string} subscriptionId
-   * @param {{ projectId?: number | string }} [options]
+   * @param {number} subscriptionId
+   * @param {{ projectId?: number }} [options]
    * @returns {Promise<void>}
    */
   async delete(subscriptionId, options) {

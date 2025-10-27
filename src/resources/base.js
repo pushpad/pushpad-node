@@ -4,7 +4,7 @@
 export class ResourceBase {
   /**
    * @param {import('../httpClient.js').HttpClient} client
-   * @param {number | string | undefined} defaultProjectId
+   * @param {number | undefined} defaultProjectId
    */
   constructor(client, defaultProjectId) {
     this.client = client;
@@ -13,7 +13,7 @@ export class ResourceBase {
 
   /**
    * Resolves the project id to be used for a request.
-   * @param {{ projectId?: number | string }} [options]
+   * @param {{ projectId?: number }} [options]
    * @returns {string}
    */
   requireProjectId(options) {

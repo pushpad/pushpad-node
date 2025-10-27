@@ -7,7 +7,7 @@ export class NotificationResource extends ResourceBase {
   /**
    * Creates and sends a new notification.
    * @param {Record<string, unknown>} data
-   * @param {{ projectId?: number | string }} [options]
+   * @param {{ projectId?: number }} [options]
    * @returns {Promise<Record<string, unknown>>}
    */
   async create(data, options) {
@@ -25,7 +25,7 @@ export class NotificationResource extends ResourceBase {
   /**
    * Lists notifications for a project.
    * @param {{ page?: number }} [query]
-   * @param {{ projectId?: number | string }} [options]
+   * @param {{ projectId?: number }} [options]
    * @returns {Promise<unknown[]>}
    */
   async findAll(query, options) {
@@ -38,7 +38,7 @@ export class NotificationResource extends ResourceBase {
 
   /**
    * Retrieves a single notification.
-   * @param {number | string} notificationId
+   * @param {number} notificationId
    * @returns {Promise<Record<string, unknown>>}
    */
   async find(notificationId) {
@@ -50,7 +50,7 @@ export class NotificationResource extends ResourceBase {
 
   /**
    * Cancels a scheduled notification.
-   * @param {number | string} notificationId
+   * @param {number} notificationId
    * @returns {Promise<void>}
    */
   async cancel(notificationId) {

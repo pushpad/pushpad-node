@@ -33,7 +33,7 @@ export class ProjectResource extends ResourceBase {
 
   /**
    * Retrieves a project by id.
-   * @param {number | string} projectId
+   * @param {number} projectId
    * @returns {Promise<Record<string, unknown>>}
    */
   async find(projectId) {
@@ -45,7 +45,7 @@ export class ProjectResource extends ResourceBase {
 
   /**
    * Updates a project.
-   * @param {number | string} projectId
+   * @param {number} projectId
    * @param {Record<string, unknown>} data
    * @returns {Promise<Record<string, unknown>>}
    */
@@ -63,7 +63,7 @@ export class ProjectResource extends ResourceBase {
 
   /**
    * Deletes a project.
-   * @param {number | string} projectId
+   * @param {number} projectId
    * @returns {Promise<void>}
    */
   async delete(projectId) {

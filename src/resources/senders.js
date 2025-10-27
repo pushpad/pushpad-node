@@ -33,7 +33,7 @@ export class SenderResource extends ResourceBase {
 
   /**
    * Retrieves a sender by id.
-   * @param {number | string} senderId
+   * @param {number} senderId
    * @returns {Promise<Record<string, unknown>>}
    */
   async find(senderId) {
@@ -45,7 +45,7 @@ export class SenderResource extends ResourceBase {
 
   /**
    * Updates a sender.
-   * @param {number | string} senderId
+   * @param {number} senderId
    * @param {Record<string, unknown>} data
    * @returns {Promise<Record<string, unknown>>}
    */
@@ -63,7 +63,7 @@ export class SenderResource extends ResourceBase {
 
   /**
    * Deletes a sender.
-   * @param {number | string} senderId
+   * @param {number} senderId
    * @returns {Promise<void>}
    */
   async delete(senderId) {

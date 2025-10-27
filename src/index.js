@@ -8,7 +8,7 @@ import { SenderResource } from './resources/senders.js';
 /**
  * @typedef {object} PushpadOptions
  * @property {string} authToken
- * @property {number | string} [projectId]
+ * @property {number} [projectId]
  * @property {string} [baseUrl]
  * @property {typeof fetch} [fetch]
  * @property {number} [timeout]
