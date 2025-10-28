@@ -1,9 +1,25 @@
 import type { Project } from './Project';
 
-export interface ProjectCreateParams extends Required<Pick<Project, 'sender_id' | 'name' | 'website'>>,
-  Omit<Project, 'id' | 'created_at'> {}
+export interface ProjectCreateParams {
+  sender_id: number;
+  name: string;
+  website: string;
+  icon_url?: string;
+  badge_url?: string;
+  notifications_ttl?: number;
+  notifications_require_interaction?: boolean;
+  notifications_silent?: boolean;
+}
 
-export interface ProjectUpdateParams extends Partial<Omit<ProjectCreateParams, 'sender_id'>> {}
+export interface ProjectUpdateParams {
+  name?: string;
+  website?: string;
+  icon_url?: string;
+  badge_url?: string;
+  notifications_ttl?: number;
+  notifications_require_interaction?: boolean;
+  notifications_silent?: boolean;
+}
 
 export class ProjectResource {
   create(data: ProjectCreateParams): Promise<Project>;

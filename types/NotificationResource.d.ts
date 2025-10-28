@@ -1,11 +1,28 @@
-import type { Notification, NotificationCreateResult } from './Notification';
+import type {
+  Notification,
+  NotificationAction,
+  NotificationCreateResult,
+} from './Notification';
 import type { RequestOptions } from './Options';
 
-export interface NotificationCreateParams extends Omit<
-  Notification,
-  'id' | 'project_id' | 'created_at' | 'successfully_sent_count' | 'opened_count' | 'scheduled_count' | 'scheduled' | 'cancelled'
-> {
+export interface NotificationCreateParams {
+  title?: string;
   body: string;
+  target_url?: string;
+  icon_url?: string;
+  badge_url?: string;
+  image_url?: string;
+  ttl?: number;
+  require_interaction?: boolean;
+  silent?: boolean;
+  urgent?: boolean;
+  custom_data?: string;
+  actions?: NotificationAction[];
+  starred?: boolean;
+  send_at?: string;
+  custom_metrics?: string[];
+  uids?: string[];
+  tags?: string[];
 }
 
 export interface NotificationListParams {

@@ -1,11 +1,14 @@
 import type { Sender } from './Sender';
 
-export interface SenderCreateParams extends Required<Pick<Sender, 'name'>>,
-  Omit<Sender, 'id' | 'created_at'> {}
+export interface SenderCreateParams {
+  name: string;
+  vapid_private_key?: string;
+  vapid_public_key?: string;
+}
 
-export interface SenderUpdateParams extends Partial<
-  Omit<SenderCreateParams, 'vapid_private_key' | 'vapid_public_key'>
-> {}
+export interface SenderUpdateParams {
+  name?: string;
+}
 
 export class SenderResource {
   create(data: SenderCreateParams): Promise<Sender>;

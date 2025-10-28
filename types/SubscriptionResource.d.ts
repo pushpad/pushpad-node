@@ -1,16 +1,18 @@
 import type { Subscription } from './Subscription';
 import type { RequestOptions } from './Options';
 
-export interface SubscriptionCreateParams extends Omit<
-  Subscription,
-  'id' | 'project_id' | 'last_click_at' | 'created_at'
-> {
+export interface SubscriptionCreateParams {
   endpoint: string;
+  p256dh?: string;
+  auth?: string;
+  uid?: string;
+  tags?: string[];
 }
 
-export interface SubscriptionUpdateParams extends Partial<
-  Omit<SubscriptionCreateParams, 'endpoint' | 'p256dh' | 'auth'>
-> {}
+export interface SubscriptionUpdateParams {
+  uid?: string;
+  tags?: string[];
+}
 
 export interface SubscriptionListParams {
   page?: number;
