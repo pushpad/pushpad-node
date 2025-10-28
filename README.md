@@ -21,6 +21,61 @@ Or add it with Yarn:
 yarn add pushpad
 ```
 
+## TL;DR Quickstart
+
+```javascript
+import Pushpad from "pushpad";
+
+const pushpad = new Pushpad({
+  authToken: "token", // from account settings
+  projectId: 123 // from project settings
+});
+
+try {
+  // send a notification
+  const result = await pushpad.notification.create({
+    body : "Your message" 
+    // and all the other fields
+  });
+  console.log(result.id);
+} catch (err) {
+  console.log(err);
+}
+
+// you can also pass projectId directly to a function (instead of setting it globally)
+const result = await pushpad.notification.create({
+  body : "Your message"
+}, { projectId: 123 });
+
+// Notifications API
+pushpad.notification.create(data, options);
+pushpad.notification.findAll(query, options);
+pushpad.notification.find(id);
+pushpad.notification.cancel(id);
+
+// Subscriptions API
+pushpad.subscription.create(data, options);
+pushpad.subscription.count(query, options);
+pushpad.subscription.findAll(query, options);
+pushpad.subscription.find(id, options);
+pushpad.subscription.update(id, data, options);
+pushpad.subscription.delete(id, options);
+
+// Projects API
+pushpad.project.create(data);
+pushpad.project.findAll();
+pushpad.project.find(id);
+pushpad.project.update(id, data);
+pushpad.project.delete(id);
+
+// Senders API
+pushpad.sender.create(data);
+pushpad.sender.findAll();
+pushpad.sender.find(id);
+pushpad.sender.update(id, data);
+pushpad.sender.delete(id);
+```
+
 ## Getting started
 
 First you need to sign up to Pushpad and create a project there.
