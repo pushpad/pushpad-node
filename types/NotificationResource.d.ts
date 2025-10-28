@@ -1,13 +1,12 @@
 import type {
   Notification,
-  NotificationAction,
   NotificationCreateResult,
 } from './Notification';
 import type { RequestOptions } from './Options';
 
 export interface NotificationCreateParams {
-  title?: string;
   body: string;
+  title?: string;
   target_url?: string;
   icon_url?: string;
   badge_url?: string;
@@ -17,12 +16,17 @@ export interface NotificationCreateParams {
   silent?: boolean;
   urgent?: boolean;
   custom_data?: string;
-  actions?: NotificationAction[];
   starred?: boolean;
   send_at?: string;
   custom_metrics?: string[];
   uids?: string[];
   tags?: string[];
+  actions?: {
+    title: string;
+    target_url?: string;
+    icon?: string;
+    action?: string;
+  }[];
 }
 
 export interface NotificationListParams {
