@@ -34,7 +34,7 @@ const pushpad = new Pushpad({
 try {
   // send a notification
   const result = await pushpad.notification.create({
-    body : "Your message" 
+    body: "Your message",
     // and all the other fields
   });
   console.log(result.id);
@@ -44,7 +44,7 @@ try {
 
 // you can also pass projectId directly to a function (instead of setting it globally)
 const result = await pushpad.notification.create({
-  body : "Your message"
+  body: "Your message"
 }, { projectId: 123 });
 
 // Notifications API
@@ -445,6 +445,8 @@ await pushpad.sender.delete(existingSender.id);
 All API requests return promises. Failed requests throw a `PushpadError` that exposes the HTTP status, response body, headers, and request metadata:
 
 ```javascript
+import { PushpadError } from 'pushpad';
+
 try {
   await pushpad.notification.create({ body: 'Hello' });
 } catch (error) {
