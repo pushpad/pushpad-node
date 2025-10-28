@@ -133,6 +133,7 @@ export class NotificationResource {
 export class SubscriptionResource {
   create(data: SubscriptionCreateInput, options?: RequestOptions): Promise<Subscription>;
   findAll(query?: SubscriptionListQuery, options?: RequestOptions): Promise<Subscription[]>;
+  count(query?: Pick<SubscriptionListQuery, 'uids' | 'tags'>, options?: RequestOptions): Promise<number>;
   find(subscriptionId: number, options?: RequestOptions): Promise<Subscription>;
   update(subscriptionId: number, data: SubscriptionUpdateInput, options?: RequestOptions): Promise<Subscription>;
   delete(subscriptionId: number, options?: RequestOptions): Promise<void>;
