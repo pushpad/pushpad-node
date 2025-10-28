@@ -385,6 +385,38 @@ await pushpad.sender.update(existingSender.id, { name: 'The New Sender Name' });
 await pushpad.sender.delete(existingSender.id);
 ```
 
+## Error handling
+
+All API requests return promises. Failed requests throw a `PushpadError` that exposes the HTTP status, response body, headers, and request metadata:
+
+```javascript
+try {
+  await pushpad.notification.create({ body: 'Hello' });
+} catch (error) {
+  if (error instanceof PushpadError) {
+    console.error(error.status, error.body);
+  }
+}
+```
+
+## TypeScript support
+
+Type definitions ship with the package (`index.d.ts`) and cover all resources, input types, and response shapes. Importing from TypeScript works out of the box:
+
+```typescript
+import Pushpad from 'pushpad';
+
+// types are inferred automatically from type definitions in the package
+const client = new Pushpad({ authToken: 'token', projectId: 123 });
+const result = await client.notification.create({ body: 'Hello' });
+```
+
+## Documentation
+
+- Pushpad REST API reference: https://pushpad.xyz/docs/rest_api
+- Getting started guide (for collecting subscriptions): https://pushpad.xyz/docs/pushpad_pro_getting_started
+- JavaScript SDK reference (frontend): https://pushpad.xyz/docs/javascript_sdk_reference
+
 ## License
 
 The package is available as open source under the terms of the [MIT License](https://opensource.org/license/MIT).
