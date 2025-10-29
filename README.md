@@ -118,7 +118,13 @@ pushpad.signatureFor(currentUserId);
 
 ## Sending push notifications
 
+Use `pushpad.notification.create()` (or the `send()` alias) to create and send a notification:
+
 ```javascript
+// send a simple notification
+await pushpad.notification.send({ body: 'Your message' });
+
+// a more complex notification with all the optional fields
 const payload = {
   // required, the main content of the notification
   body: 'Hello world!',
