@@ -7,5 +7,6 @@ This version has some breaking changes:
 - Import the package with `import Pushpad from 'pushpad';`.
 - Create a Pushpad client instance with `const pushpad = new Pushpad({ authToken: "token", projectId: 123 });`.
 - `notification.deliverTo` and `notification.broadcast` were removed. Instead you should use `const result = await pushpad.notification.create(data, options);` (or the `send()` alias).
+- When you call `pushpad.notification.create(data, options)` you should pass the `data` in *snake_case* (e.g. `target_url`), instead of using *camelCase* like in the previous version (e.g `targetUrl`). Since the payload is sent directly to the Pushpad REST API, this is more aligned with the API convention, with the OpenAPI specification and with other libraries.
 - When you call `pushpad.notification.create()` with the `send_at` param, you should pass a ISO 8601 string. For example, you can use `new Date(Date.now() + 60_000).toISOString();` to send a notification after 60 seconds.
 - When you call `pushpad.notification.create()` there isn't a `project` param (like in the previous version), instead you can optionally use `pushpad.notification.create(data, { projectId: 456 });` if you want to override the global `projectId`.
