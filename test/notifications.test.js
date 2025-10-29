@@ -20,6 +20,21 @@ test('notification.create creates a notification', async () => {
   assert.equal(call.options.body, JSON.stringify({ body: 'Hello world' }));
 });
 
+test('notification.send is an alias for notification.create', async () => {
+  const fetchStub = createFetchStub([
+    { status: 201, body: { id: 55 } }
+  ]);
+
+  const client = new Pushpad({ authToken: 'token', projectId: 99, fetch: fetchStub });
+  const response = await client.notification.send({ body: 'Alias test' });
+
+  assert.deepEqual(response, { id: 55 });
+  const { call, url } = parseLastCall(fetchStub);
+  assert.equal(call.options.method, 'POST');
+  assert.equal(url.pathname, '/api/v1/projects/99/notifications');
+  assert.equal(call.options.body, JSON.stringify({ body: 'Alias test' }));
+});
+
 test('notification.findAll lists notifications for the default project', async () => {
   const fetchStub = createFetchStub([
     { status: 200, body: [{ id: 1 }, { id: 2 }] }

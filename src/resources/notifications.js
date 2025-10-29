@@ -23,6 +23,16 @@ export class NotificationResource extends ResourceBase {
   }
 
   /**
+   * Alias for create.
+   * @param {Record<string, unknown>} data
+   * @param {{ projectId?: number }} [options]
+   * @returns {Promise<Record<string, unknown>>}
+   */
+  async send(data, options) {
+    return this.create(data, options);
+  }
+
+  /**
    * Lists notifications for a project.
    * @param {{ page?: number }} [query]
    * @param {{ projectId?: number }} [options]

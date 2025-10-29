@@ -81,6 +81,7 @@ export interface NotificationListParams {
 
 export class NotificationResource {
   create(data: NotificationCreateParams, options?: RequestOptions): Promise<NotificationCreateResult>;
+  send(data: NotificationCreateParams, options?: RequestOptions): Promise<NotificationCreateResult>;
   findAll(query?: NotificationListParams, options?: RequestOptions): Promise<Notification[]>;
   find(notificationId: number): Promise<Notification>;
   cancel(notificationId: number): Promise<void>;
